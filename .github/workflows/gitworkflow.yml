@@ -25,17 +25,11 @@ jobs:
         run: |
           zip -r lambda_function.zip .
 
-      - name: Install Dependencies
-        run: echo $ACCESS_KEY $SECRET_ACCESS_KEY
-        env:
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY}}
-          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY}}
-
       - name: Configure AWS Credentials for iamadmin-webapp
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY}}
-          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
+          aws-access-key-id: AKIAYHHHPDUJXMAKAB4Y
+          aws-secret-access-key: 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
           aws-region: us-west-2
 
       - name: Create S3 Bucket in iamadmin-webapp (if not exists)
