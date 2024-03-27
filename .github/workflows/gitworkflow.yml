@@ -25,18 +25,18 @@ jobs:
           zip -r lambda_function.zip .
 
       
-      - name: Configure AWS Credentials for Demo
+      - name: Configure AWS Credentials for iamadmin-webapp
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY_DEMO}}
-          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY_DEMO}}
+          aws-access-key-id: ${{ secrets.ACCESS_KEY}}
+          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}
           aws-region: us-west-2
 
-      - name: Create S3 Bucket in Demo (if not exists)
+      - name: Create S3 Bucket in iamadmin-webapp (if not exists)
         run: |
           aws s3 mb s3://webapp-manav || true
 
-      - name: Upload to S3 Demo
+      - name: Upload to S3 
         run: |
           aws s3 cp lambda_function.zip s3://webapp-manav/lambda_function.zip
 
