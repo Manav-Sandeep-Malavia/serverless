@@ -28,9 +28,10 @@ jobs:
       - name: Configure AWS Credentials for iamadmin-webapp
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY}}
-          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY}}
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
           aws-region: us-west-2
+
 
       - name: Create S3 Bucket in iamadmin-webapp (if not exists)
         run: |
